@@ -1,0 +1,1 @@
+export { ButtonWithAdminAccess } from "./TableEntryTypeButton";

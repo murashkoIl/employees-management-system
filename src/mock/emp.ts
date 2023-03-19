@@ -1,0 +1,42 @@
+export const employeesMock = [
+  {
+    id: "1",
+    name: "Ilya",
+    lastName: "Murashko",
+    email: "murashko.ilya7399@gmail.com",
+    department: "JavaScript",
+    specialization: "React",
+  },
+  {
+    id: "2",
+    name: "Iaan",
+    lastName: "Lamanosau",
+    email: "1dsdcs23@qwe.ru",
+    department: "JavaScript",
+    specialization: "Angular",
+  },
+  {
+    id: "3",
+    name: "Denis",
+    lastName: "Bogush",
+    email: "1cddfcdsdcs23@qwe.ru",
+    department: "TypesScript",
+    specialization: "React",
+  },
+  {
+    id: "4",
+    name: "Anna",
+    lastName: "qwe",
+    email: "dlkvndfv@qwe.com",
+    department: "JavaScript",
+    specialization: "React",
+  },
+  {
+    id: "5",
+    name: "Ilya",
+    lastName: "Murashko",
+    email: "murashko.ilya7399@gmail.com",
+    department: "JavaScript",
+    specialization: "React",
+  },
+];

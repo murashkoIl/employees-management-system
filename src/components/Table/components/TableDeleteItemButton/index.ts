@@ -1,0 +1,1 @@
+export { DeleteWithAdminAccessButton } from "./TableDeleteItemButton";

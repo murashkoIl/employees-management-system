@@ -1,0 +1,1 @@
+export { CvInfoUpdate } from "./CvInfoUpdate";

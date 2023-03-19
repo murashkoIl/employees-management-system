@@ -1,0 +1,1 @@
+export { CvInfoCreatePage } from "./CvInfoCreatePage";

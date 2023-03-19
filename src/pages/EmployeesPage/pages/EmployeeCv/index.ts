@@ -1,0 +1,1 @@
+export { EmployeeCv } from "./EmployeeCv";

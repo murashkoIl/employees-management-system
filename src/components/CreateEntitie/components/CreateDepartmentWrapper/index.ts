@@ -1,0 +1,1 @@
+export { CreateDepartmentWrapper } from "./CreateDepartmentWrapper";

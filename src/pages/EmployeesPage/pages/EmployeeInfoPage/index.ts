@@ -1,0 +1,1 @@
+export { EmployeeInfoPage } from "./EmployeeInfoPage";

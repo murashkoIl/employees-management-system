@@ -1,0 +1,63 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": ["react-app", "react-app/jest", "plugin:react-hooks/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/typescript",
+        "plugin:react-hooks/recommended"
+      ],
+
+      "parserOptions": {
+        "project": ["./tsconfig.json"] // Specify it only for TypeScript files
+      }
+    }
+  ],
+  "rules": {
+    "quotes": [
+      0,
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "@typescript-eslint/quotes": [
+      0,
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "react/jsx-uses-react": ["off"],
+    "react/react-in-jsx-scope": ["off"],
+    "react-hooks/exhaustive-deps": ["off"],
+    "no-unused-vars": ["off"],
+    "react/jsx-props-no-spreading": ["warn"],
+    "no-shadow": "off",
+    "import/prefer-default-export": ["off"],
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "{}": false
+        },
+        "extendDefaults": true
+      }
+    ]
+  }
+}
