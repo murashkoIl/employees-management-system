@@ -12,8 +12,7 @@ export const FormContolSelectLabelWrapper = styled("div")({
   justifyContent: "space-between",
   alignItems: "flex-start",
   flexDirection: "column",
-  gap: "0.5em",
-  margin: "-0.5em 0 1em 0",
+  margin: "0 0 2em 0",
   paddingRight: "3em",
 });
 
