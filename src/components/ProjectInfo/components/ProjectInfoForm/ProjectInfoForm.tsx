@@ -10,11 +10,13 @@ import { useNavigate } from "react-router";
 import { ProjectInfoFormProps } from "./ProjectInfoForm.types";
 import { SaveButtonWithAdminAccess } from "@src/components/FormSaveButton";
 import { SkillsInput } from "../SkillsInput";
-import { resetProject } from "../../helpers"
+import { resetProject } from "../../helpers";
+import { useTranslation } from "react-i18next";
 
 export const ProjectInfoForm = memo(
   ({ onSubmit, onError, data }: ProjectInfoFormProps) => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
     const { control, handleSubmit, reset } = useForm<IProject>({
       mode: "all",
       defaultValues: {
@@ -44,14 +46,14 @@ export const ProjectInfoForm = memo(
       >
         <InfoFormWrapper>
           <Fieldset
-            required="Please, specify the field"
-            label="Internal name"
+            required={t("fieldset.required") || ""}
+            label={t("table.tableHead.internalName")}
             control={control}
             name="internalName"
           />
           <Fieldset
-            required="Please, specify the field"
-            label="Name"
+            required={t("fieldset.required") || ""}
+            label={t("table.tableHead.name")}
             control={control}
             name="name"
           />
@@ -60,26 +62,26 @@ export const ProjectInfoForm = memo(
         <InfoFormWrapper>
           <DatePickerFieldset
             control={control}
-            label="Start date"
+            label={t("table.tableHead.startDate")}
             name="startDate"
-            required={"Please, specify the correct date"}
+            required={t("fieldset.required") || ""}
           />
           <DatePickerFieldset
             control={control}
-            label="End date"
+            label={t("table.tableHead.endDate")}
             name="endDate"
           />
         </InfoFormWrapper>
         <InfoFormWrapper>
           <Fieldset
-            required="Please, specify the field"
-            label="Domain"
+            required={t("fieldset.required") || ""}
+            label={t("table.tableHead.domain")}
             control={control}
             name="domain"
           />
           <Fieldset
             required="Please, specify the field"
-            label="Team size"
+            label={t("table.tableHead.teamSize")}
             control={control}
             name="teamSize"
           />
@@ -89,8 +91,8 @@ export const ProjectInfoForm = memo(
           <Fieldset
             inputWidth="31.25em"
             isMultiline={true}
-            required="Please, specify the field"
-            label="Description"
+            required={t("fieldset.required") || ""}
+            label={t("table.tableHead.description")}
             control={control}
             name="description"
           />
@@ -108,7 +110,7 @@ export const ProjectInfoForm = memo(
             color="info"
             onClick={onCancel}
           >
-            Cancel
+            {t("buttons.cancel")}
           </Button>
         </DialogActions>
       </form>

@@ -14,11 +14,13 @@ import { useQuery } from "@apollo/client";
 import { ProjectsData } from "@graphql/Project/Project.interface";
 import { GET_PROJECTS } from "@graphql/Project/Project.queries";
 import { useToggle } from "@src/hooks/useToggle";
+import { useTranslation } from "react-i18next";
 
 export const CvInfo = memo(({ cv, onSubmit, onCancel }: CvInfoProps) => {
   const [isPatternsVisible, showPreview, hidePreview] = useToggle(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const { t } = useTranslation();
 
   const { data: projects } = useQuery<ProjectsData>(GET_PROJECTS, {
     onCompleted: () => {
@@ -49,15 +51,15 @@ export const CvInfo = memo(({ cv, onSubmit, onCancel }: CvInfoProps) => {
         <InfoFormWrapper>
           <Fieldset
             control={control}
-            required="Please, specify the field"
-            label="Name"
+            required={t("fieldset.required") || ""}
+            label={t("table.tableHead.name")}
             name="name"
           />
           <Fieldset
             control={control}
             isMultiline={true}
-            required="Please, specify the field"
-            label="Description"
+            required={t("fieldset.required") || ""}
+            label={t("table.tableHead.description")}
             name="description"
           />
         </InfoFormWrapper>
@@ -82,10 +84,10 @@ export const CvInfo = memo(({ cv, onSubmit, onCancel }: CvInfoProps) => {
             variant="outlined"
             color="info"
           >
-            Cancel
+            {t("buttons.cancel")}
           </Button>
           <Button onClick={showPreview} variant="outlined">
-            Preview
+            {t("buttons.preview")}
           </Button>
         </StyledDialogActions>
       </form>

@@ -9,10 +9,12 @@ import { GET_PROJECT_NAME } from "@graphql/Project/Project.queries";
 import { ProjectName } from "@graphql/Project/Project.interface";
 import { useState } from "react";
 import { Loader } from "@components/Loader";
+import { useTranslation } from "react-i18next";
 
 export const ProjectPage = () => {
   const { projectId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const { t } = useTranslation();
 
   const { data } = useQuery<ProjectName>(GET_PROJECT_NAME, {
     variables: {
@@ -34,13 +36,13 @@ export const ProjectPage = () => {
               config={{
                 info: "Info",
                 cv: "CV",
-                projects: "Projects",
+                projects: t("projectsPage.title"),
               }}
             />
 
             <PageTopTypography
-              title="Projects"
-              caption={`Project: ${data?.project.name}`}
+              title={t("projectsPage.title")}
+              caption={`${t("projectsPage.title")}: ${data?.project.name}`}
             />
           </PageTop>
           <PageBody>

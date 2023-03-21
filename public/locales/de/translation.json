@@ -1,0 +1,91 @@
+{
+  "applicationDescription": "Mitarbeiter-Management-System",
+  "sidebar": {
+    "employees": "Mitarbeiter",
+    "projects": "Projekte",
+    "cvs": "Lebenslauf",
+    "entities": "Entitäten"
+  },
+  "employeesPage": {
+    "title": "Mitarbeiter",
+    "employeesList": "Mitarbeiterliste",
+    "profile": "profil",
+    "skills": "Fähigkeiten",
+    "languages": "Sprachen",
+    "tabs": {
+      "info": "die info",
+      "cv": "Lebenslauf"
+    },
+    "createEmployee": {
+      "role": "Rolle",
+      "departments": "Abteilungen",
+      "position": "Position"
+    }
+  },
+  "projectsPage": {
+    "title": "Projekte",
+    "projectsList": "Projektliste"
+  },
+  "cvsPage": {
+    "title": "Lebensläufe",
+    "cvsList": "Lebenslaufliste",
+    "template": "Als vorlage verwenden",
+    "user": "Benutzer"
+  },
+  "entitiesPage": {
+    "title": "Entitäten",
+    "entitiesList": "Liste der Entitäten",
+    "entities": {
+      "skills": "Fähigkeiten",
+      "languages": "Sprachen",
+      "departments": "Abteilungen",
+      "positions": "Positionen"
+    }
+  },
+  "fieldset": {
+    "required": "Bitte spezifizieren sie das feld"
+  },
+  "buttons": {
+    "addEmployee": "Mitarbeiter hinzufügen",
+    "profile": "Profil",
+    "delete": "Löschen",
+    "cancel": "Stornieren",
+    "save": "Speichern",
+    "preview": "Vorschau",
+    "projectDetails": "Projekt Details",
+    "cvDetails": "Lebenslauf Details",
+    "retry": "Wiederholung"
+  },
+  "errors": {
+    "somethingWentWrong": "Etwas ist schief gelaufen!",
+    "failedToFetchEmployeeData": "Beim Abrufen von Mitarbeiterdaten ist ein Fehler aufgetreten",
+    "failedToFetchFormData": "Beim Abrufen von Formulardaten ist etwas schief gelaufen",
+    "failedToUploadAvatar": "Beim Hochladen des Avatars ist etwas schief gegangen",
+    "failedToDeleteAvatar": "Beim Löschen des Avatars ist etwas schief gegangen",
+    "failedToFetchCvsData": "Beim Versuch, cvs-Daten abzurufen, ist etwas schiefgegangen"
+  },
+  "table": {
+    "newEntries": {
+      "add": "Hinzufügen",
+      "employee": "Mitarbeiter",
+      "project": "Projekt",
+      "cv": "Lebenslauf",
+      "entry": "Eintrag"
+    },
+    "tableHead": {
+      "name": "Name",
+      "lastName": "Familienname",
+      "email": "Email",
+      "department": "Abteilung",
+      "specialization": "Spezialisierung",
+      "internalName": "Interner Name",
+      "startDate": "Startdatum",
+      "endDate": "Endtermin",
+      "description": "Beschreibung",
+      "position": "Position",
+      "domain": "Domain",
+      "teamSize": "Teamgröße",
+      "password": "Passwort"
+    }
+  }
+}

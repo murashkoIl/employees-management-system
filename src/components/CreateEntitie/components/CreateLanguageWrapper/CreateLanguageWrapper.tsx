@@ -11,9 +11,11 @@ import {
 import { Language } from "@interfaces/language.interface";
 import { createLanguageCacheUpdate } from "@graphql/Entity/Language/Language.cache";
 import { InfoForm } from "@src/pages/EntitiesPage/pages/LanguagesPage/components/InfoForm";
+import { useTranslation } from "react-i18next";
 
 export const CreateLanguageWrapper = () => {
   const { setToastError } = useErrorToast();
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [createEntry] = useMutation<CreateLanguageOutput, CreateLanguageInput>(
@@ -28,7 +30,8 @@ export const CreateLanguageWrapper = () => {
         };
 
         setToastError(
-          (response?.message && response.message[0]) || "Something went wrong",
+          (response?.message && response.message[0]) ||
+            t("errors.somethingWentWrong"),
         );
       },
     },

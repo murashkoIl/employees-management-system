@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { InfoForm } from "./components/InfoForm";
 import { useEffect, useState } from "react";
 import { WrapperDiv, StyledButtonWrapper } from "../../EntitiesPage.styles";
@@ -31,10 +32,12 @@ import {
 } from "@graphql/Entity/Skill/Skill.cache";
 import { useModal } from "@hooks/useModal";
 import { CreateSkillWrapper } from "@components/CreateEntitie/components/CreateSkillsWrapper";
+import { useTranslation } from "react-i18next";
 
 export const SkillsPage = () => {
   const { entryId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [error, setError] = useState("");
   const [searchParams] = useSearchParams();
   const { setToastError } = useErrorToast();
@@ -71,7 +74,8 @@ export const SkillsPage = () => {
 
         if (response) {
           setToastError(
-            (response.message && response.message[0]) || "Something went wrong",
+            (response.message && response.message[0]) ||
+              t("erorrs.somethingWentWrong"),
           );
         }
       },
@@ -87,7 +91,8 @@ export const SkillsPage = () => {
         };
 
         setToastError(
-          (response?.message && response.message[0]) || "Something went wrong",
+          (response?.message && response.message[0]) ||
+            t("erorrs.somethingWentWrong"),
         );
       },
     },

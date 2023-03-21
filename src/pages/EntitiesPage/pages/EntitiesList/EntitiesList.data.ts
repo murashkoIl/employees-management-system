@@ -1,8 +1,8 @@
 import { ENTITY } from "@constants/route";
 
 export const entitiesList = [
-  { name: "Skills", link: ENTITY.SKILLS },
-  { name: "Languages", link: ENTITY.LANGUAGES },
-  { name: "Departments", link: ENTITY.DEPARTMENTS },
-  { name: "Positions", link: ENTITY.POSITIONS },
+  { name: "skills", link: ENTITY.SKILLS },
+  { name: "languages", link: ENTITY.LANGUAGES },
+  { name: "departments", link: ENTITY.DEPARTMENTS },
+  { name: "positions", link: ENTITY.POSITIONS },
 ];

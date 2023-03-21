@@ -8,10 +8,12 @@ import { PageBody } from "@components/styled/PageBody";
 import { PageTop } from "@components/styled/PageTop";
 import { PageWrapper } from "@components/styled/PageWrapper";
 import { GET_CV_NAME } from "@graphql/Cv/Cv.queries";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router";
 
 export const CvInfoUpdatePage = () => {
   const { cvId } = useParams();
+  const { t } = useTranslation();
 
   const { data, loading, error, refetch } = useQuery(GET_CV_NAME, {
     variables: { id: cvId },
@@ -35,11 +37,15 @@ export const CvInfoUpdatePage = () => {
         <PageTop>
           <Breadcrumb
             config={{
-              cvs: "Cvs",
+              cvs: t("cvsPage.title"),
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               [cvId!]: data.cv.name,
             }}
           />
-          <PageTopTypography title="Cvs" caption={data.cv.name} />
+          <PageTopTypography
+            title={t("cvsPage.title")}
+            caption={data.cv.name}
+          />
         </PageTop>
         <PageBody>
           <CvInfoUpdate />

@@ -10,7 +10,6 @@ import {
   DELETE_AVATAR,
   UPLOAD_AVATAR,
 } from "@src/graphql/Avatar/Avatar.queries";
-import { GET_ACCOUNT_INFO } from "@src/graphql/User/User.queries";
 import { toBase64 } from "@src/helpers/toBase64";
 import { observer } from "mobx-react-lite";
 import { useContext, useState } from "react";
@@ -18,11 +17,12 @@ import { UserProfileContext } from "../UserProfile/UserProfile";
 import {
   AvatarWrapper,
   PositionedAvatarDeleteIcon,
-  StyledAccountCircleIcon,
 } from "./AvatarSelector.styles";
+import { useTranslation } from "react-i18next";
 
 const AvatarSelector = () => {
   const { user, updateProfile } = useContext(UserProfileContext);
+  const { t } = useTranslation();
   const [uploadAvatar] = useMutation<UploadAvatarResult, UploadAvatarInput>(
     UPLOAD_AVATAR,
     {
@@ -60,8 +60,7 @@ const AvatarSelector = () => {
 
         setIsLoading(false);
       } catch (err) {
-        console.log(err);
-        setToastError("Something went wrong when uploading avatar");
+        setToastError(t("errors.failedToUploadAvatar"));
       }
     }
   };
@@ -79,7 +78,7 @@ const AvatarSelector = () => {
 
         setIsLoading(false);
       } catch (err) {
-        setToastError("Something went wrong when deleting avatar");
+        setToastError(t("errors.failedToDeleteAvatar"));
       }
     }
   };

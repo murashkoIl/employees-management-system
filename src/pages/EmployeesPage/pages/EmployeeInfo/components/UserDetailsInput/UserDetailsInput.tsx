@@ -8,12 +8,14 @@ import { GET_POSITIONS_NAMES_IDS } from "@src/graphql/Entity/Position/Position.q
 import { SelectEntry } from "@src/graphql/shared/components/SelectEntry";
 import { useEffect } from "react";
 import { UserDetailsInputProps } from "./UserDetailsInput.types";
+import { useTranslation } from "react-i18next";
 
 export const UserDetailsInput = ({
   onError,
   control,
   refetchObservable,
 }: UserDetailsInputProps) => {
+  const { t } = useTranslation();
   // при нажатии на кнопку там затриггерить все рефетчи тут
 
   const { data: departments, refetch: refetchDepartments } =
@@ -39,26 +41,26 @@ export const UserDetailsInput = ({
     <InfoFormWrapper>
       <Fieldset
         control={control}
-        required="Please, specify the field"
-        label="First Name"
+        required={t("employeesPage.fieldset.required") || ""}
+        label={t("table.tableHead.name")}
         name="user.profile.first_name"
       />
       <Fieldset
         control={control}
-        required="Please, specify the field"
-        label="Last Name"
+        required={t("employeesPage.fieldset.required") || ""}
+        label={t("table.tableHead.lastName")}
         name="user.profile.last_name"
       />
       <SelectEntry
         name="user.departmentId"
         control={control}
-        title="Departments"
+        title={t("table.tableHead.department")}
         entries={departments?.departments}
       />
       <SelectEntry
         name="user.positionId"
         control={control}
-        title="Positions"
+        title={t("table.tableHead.position")}
         entries={positions?.positions}
       />
     </InfoFormWrapper>

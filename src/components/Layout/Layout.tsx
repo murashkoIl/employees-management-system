@@ -13,6 +13,7 @@ export function Layout() {
 
   useEffect(() => {
     sidebarRef.current?.classList.remove("show");
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     burgerMenuRef.current!.checked = false;
   }, [burgerMenuRef, location, setIsSidebarOpened, sidebarRef]);
 
@@ -23,7 +24,7 @@ export function Layout() {
         <SideBar />
         <Outlet />
       </Content>
-      <Footer footerText="Employees Management System" />
+      <Footer />
     </>
   );
 }

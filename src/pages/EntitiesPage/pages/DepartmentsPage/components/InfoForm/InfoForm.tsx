@@ -6,8 +6,10 @@ import { InfoFormProps } from "./InfoForm.types";
 import { useEffect } from "react";
 import { Button } from "@mui/material";
 import { Department } from "@interfaces/department.interface";
+import { useTranslation } from "react-i18next";
 
 export const InfoForm = ({ input, onSubmit, onCancel }: InfoFormProps) => {
+  const { t } = useTranslation();
   const { control, handleSubmit, reset } = useForm<Department>({
     defaultValues: {
       name: input?.name,
@@ -27,15 +29,15 @@ export const InfoForm = ({ input, onSubmit, onCancel }: InfoFormProps) => {
         <InfoFormWrapper>
           <Fieldset
             control={control}
-            required="Please, specify the field"
-            label="Name"
+            required={t("fieldset.required") || ""}
+            label={t("table.tableHead.name")}
             name="name"
           />
         </InfoFormWrapper>
 
         <StyledDialogActions sx={{ marginRight: "1em" }}>
           <Button type="submit" value="Save" variant="contained">
-            Save
+            {t("buttons.save")}
           </Button>
           <Button
             onClick={onCancel}
@@ -44,7 +46,7 @@ export const InfoForm = ({ input, onSubmit, onCancel }: InfoFormProps) => {
             variant="outlined"
             color="info"
           >
-            Cancel
+            {t("buttons.cancel")}
           </Button>
         </StyledDialogActions>
       </form>

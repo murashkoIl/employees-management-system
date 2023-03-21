@@ -25,6 +25,7 @@ import {
 import { ProjectInfoCreate } from "@components/ProjectInfo/components/ProjectInfoCreate";
 import { useModal } from "@hooks/useModal";
 import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Table = createTable<IProjectTable>();
 
@@ -34,6 +35,7 @@ export const ProjectsPage = () => {
   const isMediumScreenMatch = useMediaQuery("(max-width: 790px)");
   const isSmallScreenMatch = useMediaQuery("(max-width: 640px)");
   const [mountedDialog, openModal] = useModal(ProjectInfoCreate);
+  const { t } = useTranslation();
 
   const { data } = useQuery<ProjectsData>(GET_PROJECTS, {
     onCompleted: () => {
@@ -66,8 +68,11 @@ export const ProjectsPage = () => {
     <PageWrapper>
       {mountedDialog}
       <PageTop>
-        <Breadcrumb config={{ projects: "Projects" }} />
-        <PageTopTypography title="Projects" caption="Projects list" />
+        <Breadcrumb config={{ projects: t("projectsPage.title") }} />
+        <PageTopTypography
+          title={t("projectsPage.title")}
+          caption={t("projectsPage.projectsList")}
+        />
       </PageTop>
       <PageBody>
         {isLoading ? (
@@ -87,8 +92,8 @@ export const ProjectsPage = () => {
                   : tableHead
               }
               items={getProjects(data.projects)}
-              redirectButtonText="Project details"
-              deleteButtonText="Delete"
+              redirectButtonText={t("buttons.projectDetails")}
+              deleteButtonText={t("buttons.delete")}
               entryType={TableEntry.PROJECT}
               showNewEntryButton={true}
               searchBy="name"
