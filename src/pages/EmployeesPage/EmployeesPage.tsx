@@ -91,7 +91,7 @@ export const EmployeesPage = () => {
           <Loader />
         ) : error ? (
           <InlineError
-            message="Something went wrong when trying to fetch employees data"
+            message={t("errors.failedToFetchEmployeeData")}
             tryAgainFn={handleTryAgain}
           />
         ) : (

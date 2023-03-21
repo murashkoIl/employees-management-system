@@ -15,6 +15,11 @@
     "tabs": {
       "info": "die info",
       "cv": "Lebenslauf"
+    },
+    "createEmployee": {
+      "role": "Rolle",
+      "departments": "Abteilungen",
+      "position": "Position"
     }
   },
   "projectsPage": {
@@ -23,7 +28,9 @@
   },
   "cvsPage": {
     "title": "Lebensläufe",
-    "cvsList": "Lebenslaufliste"
+    "cvsList": "Lebenslaufliste",
+    "template": "Als vorlage verwenden",
+    "user": "Benutzer"
   },
   "entitiesPage": {
     "title": "Entitäten",
@@ -46,7 +53,16 @@
     "save": "Speichern",
     "preview": "Vorschau",
     "projectDetails": "Projekt Details",
-    "cvDetails": "Lebenslauf Details"
+    "cvDetails": "Lebenslauf Details",
+    "retry": "Wiederholung"
+  },
+  "errors": {
+    "somethingWentWrong": "Etwas ist schief gelaufen!",
+    "failedToFetchEmployeeData": "Beim Abrufen von Mitarbeiterdaten ist ein Fehler aufgetreten",
+    "failedToFetchFormData": "Beim Abrufen von Formulardaten ist etwas schief gelaufen",
+    "failedToUploadAvatar": "Beim Hochladen des Avatars ist etwas schief gegangen",
+    "failedToDeleteAvatar": "Beim Löschen des Avatars ist etwas schief gegangen",
+    "failedToFetchCvsData": "Beim Versuch, cvs-Daten abzurufen, ist etwas schiefgegangen"
   },
   "table": {
     "newEntries": {
@@ -68,7 +84,8 @@
       "description": "Beschreibung",
       "position": "Position",
       "domain": "Domain",
-      "teamSize": "Teamgröße"
+      "teamSize": "Teamgröße",
+      "password": "Passwort"
     }
   }
 }

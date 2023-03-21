@@ -2,6 +2,7 @@ import { Button, Paper, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { StyledInlineErrorWrapper } from "./InlineError.styles";
 import { InlineErrorProps } from "./InlineError.types";
+import { useTranslation } from "react-i18next";
 
 /**
  *
@@ -16,6 +17,7 @@ import { InlineErrorProps } from "./InlineError.types";
  * if fetching fails
  */
 export const InlineError = ({ message, tryAgainFn }: InlineErrorProps) => {
+  const { t } = useTranslation();
   return (
     <StyledInlineErrorWrapper>
       <Stack
@@ -33,7 +35,7 @@ export const InlineError = ({ message, tryAgainFn }: InlineErrorProps) => {
         </Typography>
         {tryAgainFn && (
           <Button variant="contained" color="info" onClick={tryAgainFn}>
-            Retry
+            {t("buttons.retry")}
           </Button>
         )}
       </Stack>

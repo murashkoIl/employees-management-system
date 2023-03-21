@@ -36,7 +36,7 @@ export const ResetPassword = () => {
             <Fieldset
               isFullWidth={true}
               inputWidth="100%"
-              required="Please, specify the field"
+              required={"Please, specify the field"}
               label="Email"
               control={control}
               name="email"

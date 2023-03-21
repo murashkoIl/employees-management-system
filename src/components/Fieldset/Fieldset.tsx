@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { TextField } from "@mui/material";
 import { Controller, FieldValues } from "react-hook-form";
 import { StyledFieldsetWrapper } from "./Fieldset.styles";
 import { FieldsetProps } from "./Fieldset.types";
 
-export const Fieldset = <T extends FieldValues,>({
+export const Fieldset = <T extends FieldValues>({
   isFullWidth,
   inputWidth,
   name,

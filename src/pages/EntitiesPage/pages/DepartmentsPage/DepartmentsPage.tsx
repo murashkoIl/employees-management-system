@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useMutation, useQuery } from "@apollo/client";
 import { useErrorToast } from "@context/ErrorToastStore/ErrorToastStore";
 import { WrapperDiv, StyledButtonWrapper } from "../../EntitiesPage.styles";
@@ -30,10 +31,12 @@ import {
 import { InfoForm } from "../SkillsPage/components/InfoForm";
 import { useModal } from "@hooks/useModal";
 import { CreateDepartmentWrapper } from "@components/CreateEntitie/components/CreateDepartmentWrapper";
+import { useTranslation } from "react-i18next";
 
 export const DepartmentsPage = () => {
   const { entryId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [error, setError] = useState("");
   const [searchParams] = useSearchParams();
   const { setToastError } = useErrorToast();
@@ -74,7 +77,8 @@ export const DepartmentsPage = () => {
 
       if (response) {
         setToastError(
-          (response.message && response.message[0]) || "Something went wrong",
+          (response.message && response.message[0]) ||
+            t("errors.somethingWentWrong"),
         );
       }
     },
@@ -90,7 +94,8 @@ export const DepartmentsPage = () => {
       };
 
       setToastError(
-        (response?.message && response.message[0]) || "Something went wrong",
+        (response?.message && response.message[0]) ||
+          t("errors.somethingWentWrong"),
       );
     },
   });

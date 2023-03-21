@@ -47,7 +47,7 @@ export const ProjectInfoCreate = () => {
               ? format(new Date(data.endDate), "yyyy-MM-dd")
               : null,
             team_size: Number(data.teamSize),
-            skillsIds: [], //TODO: replace with entities
+            skillsIds: [],
           },
         },
         update: createProjectCacheUpdate(),

@@ -63,7 +63,7 @@ export const CvCreateInfoForm = ({
         />
         <FormContolSelectLabelWrapper>
           <Typography sx={{ opacity: "0.7", marginRight: "1em" }}>
-            User
+            {t("cvsPage.user")}
           </Typography>
           <Controller
             name="userId"
@@ -97,7 +97,9 @@ export const CvCreateInfoForm = ({
               />
             )}
           />
-          <Typography sx={{ opacity: "0.7" }}>Use as a template</Typography>
+          <Typography sx={{ opacity: "0.7" }}>
+            {t("cvsPage.template")}
+          </Typography>
         </FormContolLabelWrapper>
       </InfoFormWrapper>
       <DialogActions>

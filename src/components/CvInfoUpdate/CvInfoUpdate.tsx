@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useMutation, useQuery } from "@apollo/client";
 import { InlineError } from "@components/InlineError";
 import { Loader } from "@components/Loader";
@@ -14,10 +15,12 @@ import { SubmitHandler } from "react-hook-form";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { CvInfo } from "@components/CvInfo";
 import { cvCacheUpdate } from "@graphql/Cv/Cv.cache";
+import { useTranslation } from "react-i18next";
 
 export const CvInfoUpdate = memo(() => {
-  const { cvId, employeeId } = useParams();
+  const { cvId } = useParams();
   const [error, setError] = useState("");
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const [cvInput, setCvInput] = useState<CvInput | null>(null);
   const { setToastError } = useErrorToast();
@@ -40,7 +43,7 @@ export const CvInfoUpdate = memo(() => {
 
   useLayoutEffect(() => {
     if (cvInfoData) {
-      const { name, description, user, projects } = cvInfoData.cv;      
+      const { name, description, user, projects } = cvInfoData.cv;
 
       setCvInput({
         name,
@@ -114,7 +117,7 @@ export const CvInfoUpdate = memo(() => {
     <Loader />
   ) : error ? (
     <InlineError
-      message="Something went wrong when trying to fetch form data"
+      message={t("errors.failedToFetchFormData")}
       tryAgainFn={handleTryAgain}
     />
   ) : (

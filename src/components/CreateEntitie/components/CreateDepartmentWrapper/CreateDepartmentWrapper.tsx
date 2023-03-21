@@ -11,9 +11,11 @@ import { useErrorToast } from "@context/ErrorToastStore/ErrorToastStore";
 import { useNavigate } from "react-router";
 import { ROUTE } from "@constants/route";
 import { InfoForm } from "@src/pages/EntitiesPage/pages/DepartmentsPage/components/InfoForm";
+import { useTranslation } from "react-i18next";
 
 export const CreateDepartmentWrapper = () => {
   const { setToastError } = useErrorToast();
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [createEntry] = useMutation<
@@ -29,7 +31,8 @@ export const CreateDepartmentWrapper = () => {
       };
 
       setToastError(
-        (response?.message && response.message[0]) || "Something went wrong",
+        (response?.message && response.message[0]) ||
+          t("errors.somethingWentWrong"),
       );
     },
   });
@@ -49,10 +52,5 @@ export const CreateDepartmentWrapper = () => {
     navigate(ROUTE.ENTITIES);
   };
 
-  return (
-    <InfoForm
-      onSubmit={handleEntryCreate}
-      onCancel={handleEntryClose}
-    />
-  );
+  return <InfoForm onSubmit={handleEntryCreate} onCancel={handleEntryClose} />;
 };

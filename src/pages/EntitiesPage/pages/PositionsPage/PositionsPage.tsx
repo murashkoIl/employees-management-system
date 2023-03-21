@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useMutation, useQuery } from "@apollo/client";
 import { useErrorToast } from "@context/ErrorToastStore/ErrorToastStore";
 import { WrapperDiv, StyledButtonWrapper } from "../../EntitiesPage.styles";
@@ -35,10 +36,12 @@ import {
 } from "@graphql/Entity/Position/Position.queries";
 import { CreatePositionWrapper } from "@components/CreateEntitie/components/CreatePositionWrapper";
 import { useModal } from "@hooks/useModal";
+import { useTranslation } from "react-i18next";
 
 export const PositionsPage = () => {
   const { entryId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [error, setError] = useState("");
   const [searchParams] = useSearchParams();
   const { setToastError } = useErrorToast();
@@ -76,7 +79,8 @@ export const PositionsPage = () => {
 
       if (response) {
         setToastError(
-          (response.message && response.message[0]) || "Something went wrong",
+          (response.message && response.message[0]) ||
+            t("errors.somethingWentWrong"),
         );
       }
     },
@@ -91,7 +95,8 @@ export const PositionsPage = () => {
         };
 
         setToastError(
-          (response?.message && response.message[0]) || "Something went wrong",
+          (response?.message && response.message[0]) ||
+            t("errors.somethingWentWrong"),
         );
       },
     },

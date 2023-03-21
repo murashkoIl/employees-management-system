@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Fieldset } from "@components/Fieldset";
 import { TextField } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";

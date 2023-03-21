@@ -5,8 +5,10 @@ import { useForm } from "react-hook-form";
 import { InfoFormProps, SkillInput } from "./InfoForm.types";
 import { useEffect } from "react";
 import { Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export const InfoForm = ({ input, onSubmit, onCancel }: InfoFormProps) => {
+  const { t } = useTranslation();
   const { control, handleSubmit, reset } = useForm<SkillInput>({
     defaultValues: {
       name: input?.name,
@@ -26,7 +28,7 @@ export const InfoForm = ({ input, onSubmit, onCancel }: InfoFormProps) => {
         <InfoFormWrapper>
           <Fieldset
             control={control}
-            required="Please, specify the field"
+            required={t("fieldset.required") || ""}
             label="Name"
             name="name"
           />
@@ -34,7 +36,7 @@ export const InfoForm = ({ input, onSubmit, onCancel }: InfoFormProps) => {
 
         <StyledDialogActions sx={{ marginRight: "1em" }}>
           <Button type="submit" value="Save" variant="contained">
-            Save
+            {t("buttons.save")}
           </Button>
           <Button
             onClick={onCancel}
@@ -43,7 +45,7 @@ export const InfoForm = ({ input, onSubmit, onCancel }: InfoFormProps) => {
             variant="outlined"
             color="info"
           >
-            Cancel
+            {t("buttons.cancel")}
           </Button>
         </StyledDialogActions>
       </form>

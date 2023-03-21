@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import {
   Button,
   DialogActions,
@@ -16,6 +17,7 @@ import { IEmployeeCore } from "@interfaces/IEmployee";
 import { ErrorToast } from "@components/ErrorToast";
 import { SelectLabelWrapper } from "@components/styled/SelectLabel";
 import { ROLES } from "@constants/roles";
+import { useTranslation } from "react-i18next";
 
 export const EmployeeCreateInfoForm = ({
   onSubmit,
@@ -24,6 +26,7 @@ export const EmployeeCreateInfoForm = ({
   departments,
 }: EmployeeCreateInfoFormProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const { control, handleSubmit } = useForm<IEmployeeCore>({
     defaultValues: {
@@ -58,32 +61,34 @@ export const EmployeeCreateInfoForm = ({
       <InfoFormWrapper>
         <Fieldset
           control={control}
-          required="Please, specify the field"
-          label="Email"
+          required={t("fieldset.required") || ""}
+          label={t("table.tableHead.email")}
           type="email"
           name="auth.email"
         />
         <Fieldset
           control={control}
-          required="Please, specify the field"
-          label="Password"
+          required={t("fieldset.required") || ""}
+          label={t("table.tableHead.password")}
           type="password"
           name="auth.password"
         />
         <Fieldset
           control={control}
-          required="Please, specify the field"
-          label="First Name"
+          required={t("fieldset.required") || ""}
+          label={t("table.tableHead.name")}
           name="profile.first_name"
         />
         <Fieldset
           control={control}
-          required="Please, specify the field"
-          label="Last Name"
+          required={t("fieldset.required") || ""}
+          label={t("table.tableHead.lastName")}
           name="profile.last_name"
         />
         <SelectLabelWrapper>
-          <Typography sx={{ opacity: "0.7" }}>Role</Typography>
+          <Typography sx={{ opacity: "0.7" }}>
+            {t("employeesPage.createEmployee.role")}
+          </Typography>
           <Controller
             name="role"
             control={control}
@@ -96,7 +101,9 @@ export const EmployeeCreateInfoForm = ({
           />
         </SelectLabelWrapper>
         <SelectLabelWrapper>
-          <Typography sx={{ opacity: "0.7" }}>Departments</Typography>
+          <Typography sx={{ opacity: "0.7" }}>
+            {t("employeesPage.createEmployee.departments")}
+          </Typography>
           <Controller
             name="profile.departmentId"
             control={control}
@@ -112,7 +119,9 @@ export const EmployeeCreateInfoForm = ({
           />
         </SelectLabelWrapper>
         <SelectLabelWrapper>
-          <Typography sx={{ opacity: "0.7" }}>Position</Typography>
+          <Typography sx={{ opacity: "0.7" }}>
+            {t("employeesPage.createEmployee.position")}
+          </Typography>
           <Controller
             name="profile.positionId"
             control={control}
@@ -138,7 +147,7 @@ export const EmployeeCreateInfoForm = ({
           variant="outlined"
           color="info"
         >
-          Cancel
+          {t("buttons.cancel")}
         </Button>
       </DialogActions>
     </form>

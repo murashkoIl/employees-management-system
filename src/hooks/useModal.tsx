@@ -11,6 +11,7 @@ const Transition = forwardRef(function Transition(
   },
   ref: Ref<unknown>,
 ) {
+  // eslint-disable-next-line react/jsx-props-no-spreading
   return <Slide direction="up" ref={ref} {...props} />;
 });
 

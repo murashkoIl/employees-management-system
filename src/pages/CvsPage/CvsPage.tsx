@@ -87,7 +87,7 @@ export const CvsPage = () => {
             <Loader />
           ) : error ? (
             <InlineError
-              message="Something went wrong when trying to fetch cvs data"
+              message={t("errors.failedToFetchCvsData")}
               tryAgainFn={handleTryAgain}
             />
           ) : (

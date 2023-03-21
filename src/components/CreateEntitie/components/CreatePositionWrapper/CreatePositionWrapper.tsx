@@ -11,9 +11,11 @@ import {
 import { createPositionCacheUpdate } from "@graphql/Entity/Position/Position.cache";
 import { Position } from "@interfaces/position.interface";
 import { InfoForm } from "@pages/EntitiesPage/pages/PositionsPage/components/InfoForm";
+import { useTranslation } from "react-i18next";
 
 export const CreatePositionWrapper = () => {
   const { setToastError } = useErrorToast();
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [createEntry] = useMutation<CreatePositionOutput, CreatePositionInput>(
@@ -28,7 +30,8 @@ export const CreatePositionWrapper = () => {
         };
 
         setToastError(
-          (response?.message && response.message[0]) || "Something went wrong",
+          (response?.message && response.message[0]) ||
+            t("errors.somethingWentWrong"),
         );
       },
     },

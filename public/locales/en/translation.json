@@ -15,6 +15,11 @@
     "tabs": {
       "info": "info",
       "cv": "cv"
+    },
+    "createEmployee": {
+      "role": "Role",
+      "departments": "Departments",
+      "position": "Position"
     }
   },
   "projectsPage": {
@@ -23,7 +28,9 @@
   },
   "cvsPage": {
     "title": "CVs",
-    "cvsList": "Cvs list"
+    "cvsList": "Cvs list",
+    "template": "Use as a template",
+    "user": "User"
   },
   "entitiesPage": {
     "title": "Entities",
@@ -46,10 +53,16 @@
     "save": "Save",
     "preview": "Preview",
     "projectDetails": "Project Details",
-    "cvDetails": "Cv Details"
+    "cvDetails": "Cv Details",
+    "retry": "Retry"
   },
   "errors": {
-    "somethingWentWrong": "Something went wrong!"
+    "somethingWentWrong": "Something went wrong!",
+    "failedToFetchEmployeeData": "Something went wrong when trying to fetch employee data",
+    "failedToFetchFormData": "Something went wrong when trying to fetch form data",
+    "failedToUploadAvatar": "Something went wrong when uploading avatar",
+    "failedToDeleteAvatar": "Something went wrong when deleting avatar",
+    "failedToFetchCvsData": "Something went wrong when trying to fetch cvs data"
   },
   "table": {
     "newEntries": {
@@ -71,7 +84,8 @@
       "description": "Description",
       "position": "Position",
       "domain": "Domain",
-      "teamSize": "Team Size"
+      "teamSize": "Team Size",
+      "password": "Password"
     }
   }
 }

@@ -125,7 +125,7 @@ export const EmployeeInfo = memo(({ employeeId }: EmployeeInfoProps) => {
     <Loader />
   ) : error ? (
     <InlineError
-      message="Something went wrong when trying to fetch employee data"
+      message={t("errors.failedToFetchEmployeeData")}
       tryAgainFn={handleTryAgain}
     />
   ) : (
