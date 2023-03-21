@@ -21,12 +21,14 @@ import { useErrorToast } from "@context/ErrorToastStore/ErrorToastStore";
 import { tableHead } from "./tableHead";
 import { useModal } from "@src/hooks/useModal";
 import { CvInfoCreatePage } from "./components/CvInfoCreatePage";
+import { useTranslation } from "react-i18next";
 
 const Table = createTable<ICVTable>();
 
 export const CvsPage = () => {
   const [error, setError] = useState("");
   const [mountedDialog, openModal] = useModal(CvInfoCreatePage);
+  const { t } = useTranslation();
 
   const { data, refetch, loading } = useQuery<CvsData>(GET_ALL_CVS, {
     onError: (error) => {
@@ -72,10 +74,13 @@ export const CvsPage = () => {
         <PageTop>
           <Breadcrumb
             config={{
-              cvs: "Cvs",
+              cvs: t("cvsPage.title"),
             }}
           />
-          <PageTopTypography title="CVs" caption="Cvs list" />
+          <PageTopTypography
+            title={t("cvsPage.title")}
+            caption={t("cvsPage.cvsList")}
+          />
         </PageTop>
         <PageBody>
           {loading ? (
@@ -92,8 +97,8 @@ export const CvsPage = () => {
                 onCreate={handleCreate}
                 head={tableHead}
                 items={data.cvs}
-                redirectButtonText="CV details"
-                deleteButtonText="Delete"
+                redirectButtonText={t("buttons.cvDetails")}
+                deleteButtonText={t("buttons.delete")}
                 entryType={TableEntry.CV}
                 showNewEntryButton={true}
                 searchBy="name"

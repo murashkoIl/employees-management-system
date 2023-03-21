@@ -1,0 +1,74 @@
+{
+  "applicationDescription": "Mitarbeiter-Management-System",
+  "sidebar": {
+    "employees": "Mitarbeiter",
+    "projects": "Projekte",
+    "cvs": "Lebenslauf",
+    "entities": "Entitäten"
+  },
+  "employeesPage": {
+    "title": "Mitarbeiter",
+    "employeesList": "Mitarbeiterliste",
+    "profile": "profil",
+    "skills": "Fähigkeiten",
+    "languages": "Sprachen",
+    "tabs": {
+      "info": "die info",
+      "cv": "Lebenslauf"
+    }
+  },
+  "projectsPage": {
+    "title": "Projekte",
+    "projectsList": "Projektliste"
+  },
+  "cvsPage": {
+    "title": "Lebensläufe",
+    "cvsList": "Lebenslaufliste"
+  },
+  "entitiesPage": {
+    "title": "Entitäten",
+    "entitiesList": "Liste der Entitäten",
+    "entities": {
+      "skills": "Fähigkeiten",
+      "languages": "Sprachen",
+      "departments": "Abteilungen",
+      "positions": "Positionen"
+    }
+  },
+  "fieldset": {
+    "required": "Bitte spezifizieren sie das feld"
+  },
+  "buttons": {
+    "addEmployee": "Mitarbeiter hinzufügen",
+    "profile": "Profil",
+    "delete": "Löschen",
+    "cancel": "Stornieren",
+    "save": "Speichern",
+    "preview": "Vorschau",
+    "projectDetails": "Projekt Details",
+    "cvDetails": "Lebenslauf Details"
+  },
+  "table": {
+    "newEntries": {
+      "add": "Hinzufügen",
+      "employee": "Mitarbeiter",
+      "project": "Projekt",
+      "cv": "Lebenslauf",
+      "entry": "Eintrag"
+    },
+    "tableHead": {
+      "name": "Name",
+      "lastName": "Familienname",
+      "email": "Email",
+      "department": "Abteilung",
+      "specialization": "Spezialisierung",
+      "internalName": "Interner Name",
+      "startDate": "Startdatum",
+      "endDate": "Endtermin",
+      "description": "Beschreibung",
+      "position": "Position",
+      "domain": "Domain",
+      "teamSize": "Teamgröße"
+    }
+  }
+}

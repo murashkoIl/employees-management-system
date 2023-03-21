@@ -1,14 +1,13 @@
 import { Typography } from "@mui/material";
 import { StyledFooter } from "./Footer.styles";
+import { useTranslation } from "react-i18next";
 
-type FooterProps = {
-  footerText: string;
-};
+export function Footer() {
+  const { t } = useTranslation();
 
-export function Footer({ footerText }: FooterProps) {
   return (
     <StyledFooter>
-      <Typography variant="body1">{footerText}</Typography>
+      <Typography variant="body1">{t("applicationDescription")}</Typography>
     </StyledFooter>
   );
 }

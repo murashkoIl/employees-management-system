@@ -1,11 +1,12 @@
 import { Button } from "@mui/material";
 import { withAdminAccess } from "@src/hoc/withAdminAccess";
-import { FormSaveButtonProps } from "./FormSaveButton.types";
+import { useTranslation } from "react-i18next";
 
-export const FormSaveButton = ({ allowAccess }: FormSaveButtonProps) => {
+export const FormSaveButton = () => {
+  const { t } = useTranslation();
   return (
     <Button type="submit" value="Save" variant="contained">
-      Save
+      {t("buttons.save")}
     </Button>
   );
 };

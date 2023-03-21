@@ -1,6 +1,6 @@
 export enum TableEntry {
-  EMPLOYEE = "Employee",
-  PROJECT = "Project",
-  CV = "CV",
-  ENTRY = "Entry",
+  EMPLOYEE = "employee",
+  PROJECT = "project",
+  CV = "cv",
+  ENTRY = "entry",
 }

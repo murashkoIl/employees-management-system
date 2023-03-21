@@ -11,7 +11,7 @@ import {
   DeleteUserInput,
 } from "@graphql/User/User.interface";
 import { IEmployeeTable } from "@interfaces/IEmployee";
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { Breadcrumb } from "../../components/Breadcrumb";
 import { TableEntry } from "../../constants/table";
 import { getEmployees } from "./helpers";
@@ -26,11 +26,13 @@ import {
 import { useModal } from "@hooks/useModal";
 import { EmployeeInfoCreate } from "./pages/EmployeeInfo/components/EmployeeInfoCreate";
 import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Table = memo(createTable<IEmployeeTable>());
 
 export const EmployeesPage = () => {
   const [error, setError] = useState("");
+  const { t } = useTranslation();
   const isMediumScreenMatch = useMediaQuery("(max-width: 790px)");
   const isSmallScreenMatch = useMediaQuery("(max-width: 540px)");
   const [mountedDialog, openModal] = useModal(EmployeeInfoCreate);
@@ -76,10 +78,13 @@ export const EmployeesPage = () => {
       <PageTop>
         <Breadcrumb
           config={{
-            employees: "Employees",
+            employees: t("employeesPage.title"),
           }}
         />
-        <PageTopTypography title="Employees" caption="Employees list" />
+        <PageTopTypography
+          title={t(`employeesPage.title`)}
+          caption={t("employeesPage.employeesList")}
+        />
       </PageTop>
       <PageBody>
         {loading ? (
@@ -102,8 +107,8 @@ export const EmployeesPage = () => {
                   : tableHead
               }
               items={getEmployees(data.users)}
-              redirectButtonText="Profile"
-              deleteButtonText="Delete"
+              redirectButtonText={t("buttons.profile")}
+              deleteButtonText={t("buttons.delete")}
               entryType={TableEntry.EMPLOYEE}
               showNewEntryButton={true}
               searchBy="name"

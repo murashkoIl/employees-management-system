@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 import { Project } from "@interfaces/project.interface";
@@ -6,6 +7,7 @@ import { ErrorToast } from "../ErrorToast";
 import { Loader } from "../Loader";
 import { AutocompleteWrapper } from "./ProjectAutocomplete.styles";
 import { ProjectAutocompleteProps } from "./ProjectAutocomplete.types";
+import { useTranslation } from "react-i18next";
 
 export const ProjectAutocomplete = <T extends FieldValues>({
   control,
@@ -14,9 +16,9 @@ export const ProjectAutocomplete = <T extends FieldValues>({
   existingProjects,
   error,
   isLoading,
-  defaultValue,
 }: ProjectAutocompleteProps<T>) => {
   const [values, setValues] = useState<Project[]>(existingProjects);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setValues(existingProjects);
@@ -54,7 +56,7 @@ export const ProjectAutocomplete = <T extends FieldValues>({
                       {...field}
                       inputRef={ref}
                       variant="standard"
-                      label="Projects"
+                      label={t("sidebar.projects")}
                       placeholder=""
                     />
                   )}

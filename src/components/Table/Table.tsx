@@ -49,7 +49,7 @@ export function Table({
 
   const handleQuery = (query: string) => {
     setFilter(query);
-  };    
+  };
 
   return (
     <StyledGrid container>

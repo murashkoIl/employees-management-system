@@ -1,0 +1,77 @@
+{
+  "applicationDescription": "Employees Management System",
+  "sidebar": {
+    "employees": "Employees",
+    "projects": "Projects",
+    "cvs": "CVs",
+    "entities": "Entities"
+  },
+  "employeesPage": {
+    "title": "Employees",
+    "employeesList": "Employees List",
+    "profile": "profile",
+    "skills": "Skills",
+    "languages": "Languages",
+    "tabs": {
+      "info": "info",
+      "cv": "cv"
+    }
+  },
+  "projectsPage": {
+    "title": "Projects",
+    "projectsList": "Projects List"
+  },
+  "cvsPage": {
+    "title": "CVs",
+    "cvsList": "Cvs list"
+  },
+  "entitiesPage": {
+    "title": "Entities",
+    "entitiesList": "Entities List",
+    "entities": {
+      "skills": "Skills",
+      "languages": "Languages",
+      "departments": "Departments",
+      "positions": "Positions"
+    }
+  },
+  "fieldset": {
+    "required": "Please, specify the field"
+  },
+  "buttons": {
+    "addEmployee": "Add Employee",
+    "profile": "Profile",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "preview": "Preview",
+    "projectDetails": "Project Details",
+    "cvDetails": "Cv Details"
+  },
+  "errors": {
+    "somethingWentWrong": "Something went wrong!"
+  },
+  "table": {
+    "newEntries": {
+      "add": "Add",
+      "employee": "Employee",
+      "project": "Project",
+      "cv": "CV",
+      "entry": "Entry"
+    },
+    "tableHead": {
+      "name": "Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "department": "Department",
+      "specialization": "Specialization",
+      "internalName": "Internal Name",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "description": "Description",
+      "position": "Position",
+      "domain": "Domain",
+      "teamSize": "Team Size"
+    }
+  }
+}

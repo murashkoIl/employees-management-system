@@ -8,8 +8,10 @@ import { GET_LANGUAGES } from "@src/graphql/Entity/Language/Language.queries";
 import { useCallback, useMemo } from "react";
 import { useFieldArray } from "react-hook-form";
 import { LanguagesInputProps } from "./LanguagesInput.types";
+import { useTranslation } from "react-i18next";
 
 export const LanguagesInput = ({ onError, control }: LanguagesInputProps) => {
+  const { t } = useTranslation();
   const {
     fields: languagesFields,
     append: appendLanguage,
@@ -79,7 +81,7 @@ export const LanguagesInput = ({ onError, control }: LanguagesInputProps) => {
     <>
       <Stack gap={2} justifyContent="start">
         <Typography variant="h5" component="h2">
-          Languages
+          {t("employeesPage.languages")}
         </Typography>
         <DynamicFieldset
           onNew={handleNewLanguage}

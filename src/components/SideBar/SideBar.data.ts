@@ -16,13 +16,13 @@ class SideBarLinkData implements ISideBarLink {
 }
 
 export const sideBarLinks: ISideBarLink[] = [
-  new SideBarLinkData(ROUTE.EMPLOYEES, "Employees", EmojiPeopleIcon),
-  new SideBarLinkData(ROUTE.PROJECTS, "Projects", DnsIcon),
-  new SideBarLinkData(ROUTE.CVS, "CVs", AutoStoriesIcon),
+  new SideBarLinkData(ROUTE.EMPLOYEES, "employees", EmojiPeopleIcon),
+  new SideBarLinkData(ROUTE.PROJECTS, "projects", DnsIcon),
+  new SideBarLinkData(ROUTE.CVS, "cvs", AutoStoriesIcon),
 ];
 
 export const sideBarEntityLink: ISideBarLink = new SideBarLinkData(
   ROUTE.ENTITIES,
-  "Entities",
+  "entities",
   FolderIcon,
 );

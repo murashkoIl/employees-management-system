@@ -8,8 +8,10 @@ import { GET_SKILLS } from "@src/graphql/Entity/Skill/Skill.queries";
 import { useCallback, useMemo } from "react";
 import { useFieldArray } from "react-hook-form";
 import { SkillsInputProps } from "./SkillsInput.types";
+import { useTranslation } from "react-i18next";
 
 export const SkillsInput = ({ onError, control }: SkillsInputProps) => {
+  const { t } = useTranslation();
   const {
     fields: skillsFields,
     append: appendSkill,
@@ -72,7 +74,7 @@ export const SkillsInput = ({ onError, control }: SkillsInputProps) => {
     <>
       <Stack gap={2} justifyContent="start">
         <Typography variant="h5" component="h2">
-          Skills
+          {t("employeesPage.skills")}
         </Typography>
         <DynamicFieldset
           onNew={handleNewSkill}

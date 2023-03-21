@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { CvInput } from "@graphql/Cv/Cv.interface";
 import { ROUTE } from "@constants/route";
@@ -20,6 +21,7 @@ import {
   FormContolLabelWrapper,
   FormContolSelectLabelWrapper,
 } from "./CvCreateInfoForm.styles";
+import { useTranslation } from "react-i18next";
 
 export const CvCreateInfoForm = ({
   onSubmit,
@@ -27,6 +29,7 @@ export const CvCreateInfoForm = ({
   users,
 }: CvCreateInfoFormProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const { control, handleSubmit } = useForm<CvInput>({
     defaultValues: {
@@ -54,8 +57,8 @@ export const CvCreateInfoForm = ({
       <InfoFormWrapper>
         <Fieldset
           control={control}
-          required="Please, specify the field"
-          label="Name"
+          required={t("fieldset.required") || ""}
+          label={t("table.tableHead.name")}
           name="name"
         />
         <FormContolSelectLabelWrapper>
@@ -79,8 +82,8 @@ export const CvCreateInfoForm = ({
         <Fieldset
           control={control}
           isMultiline={true}
-          required="Please, specify the field"
-          label="Description"
+          required={t("fieldset.required") || ""}
+          label={t("table.tableHead.description")}
           name="description"
         />
         <FormContolLabelWrapper>
@@ -106,7 +109,7 @@ export const CvCreateInfoForm = ({
           variant="outlined"
           color="info"
         >
-          Cancel
+          {t("buttons.cancel")}
         </Button>
       </DialogActions>
     </form>

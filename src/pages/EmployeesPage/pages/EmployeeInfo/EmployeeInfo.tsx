@@ -23,14 +23,16 @@ import { UserDetailsInput } from "./components/UserDetailsInput";
 import { userCacheUpdate } from "@graphql/User/User.cache";
 import { DynamicFieldsetGroupWrapper } from "@components/styled/DynamicFieldsetGroupWrapper";
 import { authStore } from "@src/stores/AuthStore/AuthStore";
+import { useTranslation } from "react-i18next";
 
 export const EmployeeInfo = memo(({ employeeId }: EmployeeInfoProps) => {
   const [error, setError] = useState("");
   const { user$ } = authStore;
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   // TODO: Form must correspond the data sent
-  const { control, handleSubmit, reset, getValues } = useForm<CreateUserInput>({
+  const { control, handleSubmit, reset } = useForm<CreateUserInput>({
     defaultValues: {
       user: {
         departmentId: "",
@@ -117,7 +119,7 @@ export const EmployeeInfo = memo(({ employeeId }: EmployeeInfoProps) => {
 
   const checkIfOwnProfile = (data?: GetUserResult) => {
     return user$?.email === data?.user?.email;
-  };  
+  };
 
   return getUserInfoLoading || saveUserLoading ? (
     <Loader />
@@ -153,7 +155,7 @@ export const EmployeeInfo = memo(({ employeeId }: EmployeeInfoProps) => {
           variant="outlined"
           color="info"
         >
-          Cancel
+          {t("buttons.cancel")}
         </Button>
       </DialogActions>
     </form>

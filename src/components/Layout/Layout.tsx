@@ -23,7 +23,7 @@ export function Layout() {
         <SideBar />
         <Outlet />
       </Content>
-      <Footer footerText="Employees Management System" />
+      <Footer />
     </>
   );
 }

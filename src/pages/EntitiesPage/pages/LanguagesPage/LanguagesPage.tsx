@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
   DELETE_LANGUAGE,
   GET_LANGUAGES,
@@ -30,10 +31,12 @@ import {
 } from "@graphql/Entity/Language/Language.cache";
 import { CreateLanguageWrapper } from "@components/CreateEntitie/components/CreateLanguageWrapper";
 import { useModal } from "@hooks/useModal";
+import { useTranslation } from "react-i18next";
 
 export const LanguagesPage = () => {
   const { entryId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [error, setError] = useState("");
   const [searchParams] = useSearchParams();
   const { setToastError } = useErrorToast();
@@ -71,7 +74,8 @@ export const LanguagesPage = () => {
 
       if (response) {
         setToastError(
-          (response.message && response.message[0]) || "Something went wrong",
+          (response.message && response.message[0]) ||
+            t("errors.somethingWentWrong"),
         );
       }
     },
@@ -86,7 +90,8 @@ export const LanguagesPage = () => {
         };
 
         setToastError(
-          (response?.message && response.message[0]) || "Something went wrong",
+          (response?.message && response.message[0]) ||
+            t("errors.somethingWentWrong"),
         );
       },
     },

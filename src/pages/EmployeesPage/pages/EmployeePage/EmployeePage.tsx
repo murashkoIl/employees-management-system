@@ -14,10 +14,12 @@ import { PageWrapper } from "@components/styled/PageWrapper";
 import { validateUserFullName } from "../../helpers";
 import { Loader } from "@components/Loader";
 import { CurrentUserProvider } from "@context/currentUserContext/currentUserContext";
+import { useTranslation } from "react-i18next";
 
 export const EmployeePage = () => {
   const { employeeId } = useParams();
   const { pathname } = useLocation();
+  const { t } = useTranslation();
   const pathnames = pathname.split("/");
 
   const { data, loading } = useQuery<GetUserFullnameResult>(GET_USER_FULLNAME, {
@@ -49,14 +51,15 @@ export const EmployeePage = () => {
           <Breadcrumb
             config={{
               info: "Info",
-              cv: "CV",
-              employees: "Employees",
+              cv: t("employeesPage.tabs.cv"),
+              employees: t("employeesPage.title"),
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               [employeeId!]: displayedName,
             }}
           />
           <PageTopTypography
-            title="Employees"
-            caption={displayedName + "'s profile"}
+            title={t("employeesPage.title")}
+            caption={displayedName + `'s ${t("employeesPage.profile")}`}
           />
         </PageTop>
         <LinksPageBody>
@@ -72,11 +75,15 @@ export const EmployeePage = () => {
               aria-label="nav tabs example"
             >
               <Tab
-                label="Info"
+                label={t("employeesPage.tabs.info")}
                 component={Link}
                 to={ROUTE.EMPLOYEES + "/" + employeeId}
               />
-              <Tab label="CV" component={Link} to={"cv"} />
+              <Tab
+                label={t("employeesPage.tabs.cv")}
+                component={Link}
+                to={"cv"}
+              />
             </Tabs>
           </Box>
         </LinksPageBody>
