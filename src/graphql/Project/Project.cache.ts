@@ -40,7 +40,7 @@ export const createProjectCacheUpdate =
       cache.writeQuery({
         query: GET_PROJECTS,
         data: {
-          projects: [data?.createProject.project, ...existingProjects.projects],
+          projects: [data?.createProject, ...existingProjects.projects],
         },
       });
     }

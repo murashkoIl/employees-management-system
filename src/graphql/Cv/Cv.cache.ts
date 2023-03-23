@@ -36,7 +36,7 @@ export const createCvCacheUpdate =
       cache.writeQuery({
         query: GET_ALL_CVS,
         data: {
-          users: [data?.createCv, ...existingCvs.cvs],
+          cvs: [data?.createCv, ...existingCvs.cvs],
         },
       });
     }

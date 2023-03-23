@@ -33,6 +33,7 @@ export type CreateUserInput = {
     cvsIds: string[];
     departmentId: string;
     positionId: string;
+    role: string;
   };
 };
 

@@ -14,16 +14,18 @@ import { useCallback, useState } from "react";
 import { createProjectCacheUpdate } from "@graphql/Project/Project.cache";
 import { Loader } from "@src/components/Loader";
 import { InlineError } from "@src/components/InlineError";
+import { modalObserver } from "@src/helpers/observer";
 
 export const ProjectInfoCreate = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [fetchError, setFetchError] = useState("");
 
   const [createProject] = useMutation<CreateProjectOutput, CreateProjectInput>(
     CREATE_PROJECT,
     {
       onCompleted: () => {
+        modalObserver.notify();
         navigate(ROUTE.PROJECTS);
       },
       onError: (error) => {

@@ -1,8 +1,8 @@
 import { ROUTE } from "@constants/route";
 
 interface ISubject {
-  subscribe(observer: IObserver): void;
-  unsubscribe(observer: IObserver): void;
+  subscribe(observer: IObserver | IModalObserver): void;
+  unsubscribe(observer: IObserver | IModalObserver): void;
   notify(): void;
 }
 
@@ -40,5 +40,27 @@ class LogoutHandler implements IObserver {
   }
 }
 
+interface IModalObserver {
+  (): void;
+}
+
+class ModalObserver implements ISubject {
+  private observers: IModalObserver[] = [];
+  subscribe(obs: IModalObserver) {
+    this.observers.push(obs);
+  }
+  unsubscribe(obs: IModalObserver) {
+    this.observers = this.observers.filter((fn: IModalObserver) => {
+      return fn !== obs;
+    });
+  }
+  notify() {
+    this.observers.forEach((obs: IModalObserver) => {
+      obs();
+    });
+  }
+}
+
 export const logoutObserver = new LogoutObserver();
+export const modalObserver = new ModalObserver();
 const logoutHandler = new LogoutHandler(logoutObserver);

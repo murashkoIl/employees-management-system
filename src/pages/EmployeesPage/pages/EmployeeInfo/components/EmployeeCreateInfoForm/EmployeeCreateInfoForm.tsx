@@ -39,11 +39,11 @@ export const EmployeeCreateInfoForm = ({
         last_name: "",
         departmentId: "",
         positionId: "",
+        role: "",
         skills: [],
         languages: [],
       },
       cvsIds: [],
-      role: "",
     },
   });
 
@@ -90,7 +90,7 @@ export const EmployeeCreateInfoForm = ({
             {t("employeesPage.createEmployee.role")}
           </Typography>
           <Controller
-            name="role"
+            name="profile.role"
             control={control}
             render={({ field }) => (
               <Select sx={{ minWidth: "12em" }} {...field}>

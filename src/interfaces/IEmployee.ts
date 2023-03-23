@@ -24,13 +24,13 @@ export interface IEmployeeCore {
     password: string;
   };
   profile: {
+    role?: string;
+    positionId: string;
+    departmentId: string;
     first_name: string;
     last_name: string;
-    departmentId: string;
-    positionId: string;
     skills: SkillMastery[];
     languages: LanguageProficiency[];
   };
   cvsIds: string[];
-  role: string;
 }

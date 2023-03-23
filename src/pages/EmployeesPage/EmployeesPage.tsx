@@ -27,6 +27,7 @@ import { useModal } from "@hooks/useModal";
 import { EmployeeInfoCreate } from "./pages/EmployeeInfo/components/EmployeeInfoCreate";
 import { useMediaQuery } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { modalObserver } from "@src/helpers/observer";
 
 const Table = memo(createTable<IEmployeeTable>());
 
@@ -35,7 +36,8 @@ export const EmployeesPage = () => {
   const { t } = useTranslation();
   const isMediumScreenMatch = useMediaQuery("(max-width: 790px)");
   const isSmallScreenMatch = useMediaQuery("(max-width: 540px)");
-  const [mountedDialog, openModal] = useModal(EmployeeInfoCreate);
+  const [mountedDialog, openModal, closeModal] = useModal(EmployeeInfoCreate);
+  modalObserver.subscribe(closeModal);
 
   const { data, refetch, loading } = useQuery<GetUsersResult>(GET_USERS, {
     onError: (error) => {

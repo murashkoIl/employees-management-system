@@ -13,6 +13,7 @@ import { createCvCacheUpdate } from "@graphql/Cv/Cv.cache";
 import { CvCreateInfoForm } from "../CvCreateInfoForm";
 import { GET_USERS_NAMES_IDS } from "@graphql/User/User.queries";
 import { UsersNamesIdsData } from "../CvCreateInfoForm/CvCreateInfoForm.types";
+import { modalObserver } from "@src/helpers/observer";
 
 export const CvInfoCreatePage = () => {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ export const CvInfoCreatePage = () => {
 
   const [createCv] = useMutation<CreateCvOutput, CreateCvInput>(CREATE_CV, {
     onCompleted: () => {
+    modalObserver.notify();
       navigate(ROUTE.CVS);
     },
     onError: (error) => {

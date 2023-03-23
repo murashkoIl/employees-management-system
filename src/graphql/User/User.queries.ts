@@ -175,18 +175,10 @@ export const CREATE_USER = gql`
     createUser(user: $user) {
       id
       email
+      role
       profile {
         first_name
         last_name
-        position_name
-        position {
-          name
-          id
-        }
-        department {
-          name
-          id
-        }
         languages {
           language_name
           proficiency
@@ -196,6 +188,29 @@ export const CREATE_USER = gql`
           mastery
         }
       }
+      position {
+        id
+        name
+      }
+      position_name
+      department {
+        id
+        name
+      }
+      cvs {
+        id
+        name
+      }
     }
   }
 `;
+
+// position_name
+// position {
+//   name
+//   id
+// }
+// department {
+//   name
+//   id
+// }

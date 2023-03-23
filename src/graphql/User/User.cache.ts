@@ -36,7 +36,7 @@ export const createUserCacheUpdate =
       cache.writeQuery({
         query: GET_USERS,
         data: {
-          users: [data?.createUser.user, ...existingUsers.users],
+          users: [data?.createUser, ...existingUsers.users],
         },
       });
     }

@@ -22,13 +22,16 @@ import { tableHead } from "./tableHead";
 import { useModal } from "@src/hooks/useModal";
 import { CvInfoCreatePage } from "./components/CvInfoCreatePage";
 import { useTranslation } from "react-i18next";
+import { modalObserver } from "@src/helpers/observer";
 
 const Table = createTable<ICVTable>();
 
 export const CvsPage = () => {
   const [error, setError] = useState("");
-  const [mountedDialog, openModal] = useModal(CvInfoCreatePage);
+  const [mountedDialog, openModal, closeModal] = useModal(CvInfoCreatePage);
   const { t } = useTranslation();
+
+  modalObserver.subscribe(closeModal);
 
   const { data, refetch, loading } = useQuery<CvsData>(GET_ALL_CVS, {
     onError: (error) => {
