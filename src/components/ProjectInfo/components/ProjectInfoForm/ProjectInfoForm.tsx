@@ -80,7 +80,8 @@ export const ProjectInfoForm = memo(
             name="domain"
           />
           <Fieldset
-            required="Please, specify the field"
+            type="number"
+            required={t("fieldset.required") || ""}
             label={t("table.tableHead.teamSize")}
             control={control}
             name="teamSize"
