@@ -14,9 +14,9 @@ import { useCallback, useState } from "react";
 import { createProjectCacheUpdate } from "@graphql/Project/Project.cache";
 import { Loader } from "@src/components/Loader";
 import { InlineError } from "@src/components/InlineError";
-import { modalObserver } from "@src/helpers/observer";
+import { ProjectInfoCreateProps } from "./ProjectInfoCreate.types";
 
-export const ProjectInfoCreate = () => {
+export const ProjectInfoCreate = ({ closeModal }: ProjectInfoCreateProps) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [fetchError, setFetchError] = useState("");
@@ -25,7 +25,7 @@ export const ProjectInfoCreate = () => {
     CREATE_PROJECT,
     {
       onCompleted: () => {
-        modalObserver.notify();
+        closeModal && closeModal();
         navigate(ROUTE.PROJECTS);
       },
       onError: (error) => {

@@ -44,7 +44,7 @@ interface IModalObserver {
   (): void;
 }
 
-class ModalObserver implements ISubject {
+class Observer implements ISubject {
   private observers: IModalObserver[] = [];
   subscribe(obs: IModalObserver) {
     this.observers.push(obs);
@@ -61,6 +61,5 @@ class ModalObserver implements ISubject {
   }
 }
 
+export const fetchEmployeesCvObserver = new Observer();
 export const logoutObserver = new LogoutObserver();
-export const modalObserver = new ModalObserver();
-const logoutHandler = new LogoutHandler(logoutObserver);

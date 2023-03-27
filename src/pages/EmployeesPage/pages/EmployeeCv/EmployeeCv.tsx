@@ -16,6 +16,7 @@ import { InlineError } from "@components/InlineError";
 import { AssignCvForm } from "@components/AssignCvForm/AssignCvForm";
 import { useModal } from "@hooks/useModal";
 import { AssignCvFormProps } from "@components/AssignCvForm/AssignCvForm.types";
+import { fetchEmployeesCvObserver } from "@src/helpers/observer";
 
 export const EmployeeCv = () => {
   const { employeeId } = useParams();
@@ -38,8 +39,10 @@ export const EmployeeCv = () => {
       setError(err.message);
     },
   });
-  
-  useEffect(() => {    
+
+  fetchEmployeesCvObserver.subscribe(refetch);
+
+  useEffect(() => {
     if (!userData) return;
 
     const firstCv = userData.user.cvs[0];
@@ -101,7 +104,7 @@ export const EmployeeCv = () => {
 
   const handleAddIconClick = () => {
     openModal();
-  };  
+  };
 
   return (
     <WrapperDiv>

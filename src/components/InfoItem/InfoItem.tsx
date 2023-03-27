@@ -7,8 +7,6 @@ import { InfoItemProps } from "./InfoItem.types";
 const DeleteOutlineIconWithAdminAccess = withAdminAccess(DeleteOutlineIcon);
 
 export const InfoItem = ({ id, name, onDelete }: InfoItemProps) => {
-  // move outside
-
   const handleDelete: React.MouseEventHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();

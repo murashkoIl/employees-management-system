@@ -4,6 +4,7 @@ import Close from "@mui/icons-material/Close";
 import { forwardRef, ReactElement, Ref, useCallback, useState } from "react";
 import { StyledDialog } from "@components/styled/StyledDialog";
 import { AssignCvFormProps } from "@components/AssignCvForm/AssignCvForm.types";
+import { EmployeeInfoCreateProps } from "@src/pages/EmployeesPage/pages/EmployeeInfo/components/EmployeeInfoCreate/EmployeeInfoCreate.types";
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
@@ -16,7 +17,7 @@ const Transition = forwardRef(function Transition(
 });
 
 export const useModal = <T,>(
-  Component: React.ComponentType<AssignCvFormProps>,
+  Component: React.ComponentType<T | AssignCvFormProps>,
 ): [JSX.Element, () => void, () => void] => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

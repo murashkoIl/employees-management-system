@@ -16,9 +16,9 @@ import { PositionsNamesIdsData } from "@graphql/Entity/Position/Position.interfa
 import { GET_POSITIONS_NAMES_IDS } from "@graphql/Entity/Position/Position.queries";
 import { GET_DEPARTMENTS } from "@graphql/Entity/Department/Department.queries";
 import { GetDepartmentsData } from "@graphql/Entity/Department/Department.interface";
-import { modalObserver } from "@src/helpers/observer";
+import { EmployeeInfoCreateProps } from "./EmployeeInfoCreate.types";
 
-export const EmployeeInfoCreate = () => {
+export const EmployeeInfoCreate = ({ closeModal }: EmployeeInfoCreateProps) => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
@@ -42,7 +42,7 @@ export const EmployeeInfoCreate = () => {
     CreateUserInput
   >(CREATE_USER, {
     onCompleted: () => {
-      modalObserver.notify();
+      closeModal && closeModal();
       navigate(ROUTE.EMPLOYEES);
     },
     onError: (error) => {
