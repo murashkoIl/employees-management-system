@@ -26,7 +26,7 @@ import { ProjectInfoCreate } from "@components/ProjectInfo/components/ProjectInf
 import { useModal } from "@hooks/useModal";
 import { useMediaQuery } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { modalObserver } from "@src/helpers/observer";
+import { ProjectInfoCreateProps } from "@src/components/ProjectInfo/components/ProjectInfoCreate/ProjectInfoCreate.types";
 
 const Table = createTable<IProjectTable>();
 
@@ -35,8 +35,8 @@ export const ProjectsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const isMediumScreenMatch = useMediaQuery("(max-width: 790px)");
   const isSmallScreenMatch = useMediaQuery("(max-width: 640px)");
-  const [mountedDialog, openModal, closeModal] = useModal(ProjectInfoCreate);
-  modalObserver.subscribe(closeModal);
+  const [mountedDialog, openModal] =
+    useModal<ProjectInfoCreateProps>(ProjectInfoCreate);
   const { t } = useTranslation();
 
   const { data } = useQuery<ProjectsData>(GET_PROJECTS, {

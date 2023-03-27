@@ -14,9 +14,12 @@ import { Loader } from "../Loader";
 import { InlineError } from "../InlineError";
 import { AssignCvFormProps } from "./AssignCvForm.types";
 import { useParams } from "react-router";
+import { useTranslation } from "react-i18next";
+import { fetchEmployeesCvObserver } from "@src/helpers/observer";
 
-export const AssignCvForm = ({ closeModal, userInfo }: AssignCvFormProps) => {
+export const AssignCvForm = ({ closeModal }: AssignCvFormProps) => {
   const [error, setError] = useState("");
+  const { t } = useTranslation();
   const { employeeId } = useParams();
 
   const [saveUser, { loading: saveUserLoading }] = useMutation<
@@ -25,13 +28,14 @@ export const AssignCvForm = ({ closeModal, userInfo }: AssignCvFormProps) => {
   >(UPDATE_USER, {
     onCompleted: (data) => {
       closeModal && closeModal();
+      fetchEmployeesCvObserver.notify();
     },
     onError: (error) => {
       setError(error.message);
     },
   });
 
-  const { data: userData, loading } = useQuery<GetUserResult>(GET_USER_INFO, {
+  const { data: userData } = useQuery<GetUserResult>(GET_USER_INFO, {
     variables: { id: employeeId },
 
     onError: (err) => {
@@ -42,34 +46,37 @@ export const AssignCvForm = ({ closeModal, userInfo }: AssignCvFormProps) => {
   const { data: cvInfoNames, loading: isCvInfoLoading } =
     useQuery<CvsNamesData>(GET_CVS_NAMES);
 
-  const handleCvClick = useCallback((e: React.SyntheticEvent) => {
-    if (userData && employeeId) {
-      const cvsIds = userData.user.cvs.map((cv) => cv.id);
+  const handleCvClick = useCallback(
+    (e: React.SyntheticEvent) => {
+      if (userData && employeeId) {
+        const cvsIds = userData.user.cvs.map((cv) => cv.id);
 
-      saveUser({
-        variables: {
-          id: userData.user.id,
-          user: {
-            departmentId: userData.user.department?.id || "",
-            positionId: userData.user.position?.id || "",
-            profile: {
-              first_name: userData.user.profile?.first_name || "",
-              last_name: userData.user.profile?.last_name || "",
-              skills: userData.user.profile?.skills,
-              languages: userData.user.profile?.languages,
+        saveUser({
+          variables: {
+            id: userData.user.id,
+            user: {
+              departmentId: userData.user.department?.id || "",
+              positionId: userData.user.position?.id || "",
+              profile: {
+                first_name: userData.user.profile?.first_name || "",
+                last_name: userData.user.profile?.last_name || "",
+                skills: userData.user.profile?.skills,
+                languages: userData.user.profile?.languages,
+              },
+              cvsIds: [...cvsIds, (e.target as Element).id],
             },
-            cvsIds: [...cvsIds, (e.target as Element).id],
           },
-        },
-        update: userCacheUpdate(employeeId),
-      });
-    }
-  }, []);
+          update: userCacheUpdate(employeeId),
+        });
+      }
+    },
+    [employeeId, saveUser, userData],
+  );
 
   return isCvInfoLoading || saveUserLoading ? (
     <Loader />
   ) : error ? (
-    <InlineError message="Something went wrong when trying to fetch employee data" />
+    <InlineError message={t("errors.failedToFetchEmployeeData")} />
   ) : (
     <StyledWrapper>
       {cvInfoNames?.cvs.map(({ name, id }) => (
