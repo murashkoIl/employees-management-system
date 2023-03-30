@@ -81,7 +81,7 @@ export const CvInfoUpdate = memo(() => {
             name,
             description,
             projectsIds,
-            userId: cvInfoData?.cv.user?.id || "",
+            userId: cvInfoData?.cv.id || "",
             skills: [],
             languages: [],
             is_template: false,
@@ -102,7 +102,7 @@ export const CvInfoUpdate = memo(() => {
         update: cvCacheUpdate(cvId!),
       });
     },
-    [cvId, cvInfoData?.cv.user, saveCv],
+    [cvId, cvInfoData?.cv.id, saveCv],
   );
 
   const handleCancel: React.MouseEventHandler = (e) => {
