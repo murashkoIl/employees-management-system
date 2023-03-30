@@ -1,5 +1,4 @@
 import { IEmployeeInfo } from "@interfaces/IEmployee";
-import { CreateUserInput } from "@src/graphql/User/User.interface";
 import { User } from "@src/interfaces/user.interface";
 
 export function getEmployeeInfo<T extends User | undefined>(

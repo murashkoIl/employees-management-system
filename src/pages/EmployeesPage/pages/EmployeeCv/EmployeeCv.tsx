@@ -56,8 +56,6 @@ export const EmployeeCv = () => {
         navigate(cvId);
         setActive(cvId);
       }
-
-      setActive("-1");
     }
   }, [userData?.user.cvs, cvId, navigate, searchParams, userData]);
 

@@ -10,6 +10,7 @@
     "@mui/material": "^5.9.1",
     "@mui/x-date-pickers": "^5.0.1",
     "@react-pdf/renderer": "^3.0.0",
+    "ci": "^2.2.0",
     "date-fns": "^2.29.1",
     "graphql": "^16.6.0",
     "i18next": "^22.4.12",

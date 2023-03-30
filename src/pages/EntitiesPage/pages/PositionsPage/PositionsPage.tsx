@@ -15,8 +15,6 @@ import { Department } from "@interfaces/department.interface";
 import { InfoItem } from "@components/InfoItem";
 import { InfoForm } from "../SkillsPage/components/InfoForm";
 import {
-  CreatePositionInput,
-  CreatePositionOutput,
   DeletePositionOutput,
   GetPositionsData,
   Position,
@@ -24,12 +22,10 @@ import {
   UpdatePositionResult,
 } from "@graphql/Entity/Position/Position.interface";
 import {
-  createPositionCacheUpdate,
   deletePositionCacheUpdate,
   positionCacheUpdate,
 } from "@graphql/Entity/Position/Position.cache";
 import {
-  CREATE_POSITION,
   DELETE_POSITION,
   GET_POSITIONS,
   UPDATE_POSITION,
